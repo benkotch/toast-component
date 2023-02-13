@@ -1,0 +1,19 @@
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  /*
+    This is the height when a row contains a text input.
+    We specify it to prevent a layout shift when `dismiss-after`
+    is toggled on/off.
+  */
+  min-height: 3rem;
+}
+
+.row:not(:last-of-type) {
+  padding-bottom: 16px;
+  border-bottom: 1px dotted hsl(250deg 80% 80% / 0.5);
+  margin-bottom: 16px;
+}
+
