@@ -27,6 +27,7 @@ function ToastPlayground() {
       return;
     }
     setToasts([...toasts, { variant, message }]);
+    console.log("toasts", toasts);
     setMessage("");
     setVariant("notice");
   }

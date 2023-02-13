@@ -8,8 +8,25 @@ function ToastShelf() {
   const id = React.useId();
   const { toasts, dismissToasts } = React.useContext(ToastContext);
 
+  React.useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.key === "Escape") {
+        dismissToasts("all");
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [dismissToasts]);
+
   return (
-    <ol className={styles.wrapper}>
+    <ol
+      className={styles.wrapper}
+      role="region"
+      aria-live="assertive"
+      aria-label="Notification"
+    >
       {toasts.map((toast, index) => (
         <li className={styles.toastWrapper} key={`${id}-${index}`}>
           <Toast variant={toast.variant} dismiss={() => dismissToasts(index)}>

@@ -6,6 +6,10 @@ function ToastProvider({ children }) {
   const [toasts, setToasts] = React.useState([]);
 
   function dismissToasts(index) {
+    if (index === "all") {
+      setToasts([]);
+      return;
+    }
     const newToasts = [...toasts];
     newToasts.splice(index, 1);
     setToasts(newToasts);
