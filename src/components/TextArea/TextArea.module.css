@@ -1,0 +1,15 @@
+.label {
+  flex-basis: 160px;
+  text-align: right;
+  font-weight: 700;
+}
+
+.messageInput {
+  display: block;
+  width: 100%;
+  height: 4rem;
+}
+
+.inputWrapper {
+  flex: 1;
+}

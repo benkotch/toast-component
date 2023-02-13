@@ -1,6 +1,7 @@
 import React from "react";
 
 import Button from "../Button";
+import TextArea from "../TextArea/TextArea";
 import ToastVariants from "../ToastVariants/ToastVariants";
 
 import styles from "./ToastPlayground.module.css";
@@ -9,6 +10,7 @@ const VARIANT_OPTIONS = ["notice", "warning", "success", "error"];
 
 function ToastPlayground() {
   const [variant, setVariant] = React.useState("notice");
+  const [message, setMessage] = React.useState("");
 
   return (
     <div className={styles.wrapper}>
@@ -19,16 +21,11 @@ function ToastPlayground() {
 
       <div className={styles.controlsWrapper}>
         <div className={styles.row}>
-          <label
-            htmlFor="message"
-            className={styles.label}
-            style={{ alignSelf: "baseline" }}
-          >
-            Message
-          </label>
-          <div className={styles.inputWrapper}>
-            <textarea id="message" className={styles.messageInput} />
-          </div>
+          <TextArea
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            id={"message"}
+          />
         </div>
 
         <div className={styles.row}>
