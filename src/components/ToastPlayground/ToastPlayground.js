@@ -17,17 +17,17 @@ function ToastPlayground() {
   const [variant, setVariant] = React.useState("notice");
   const [message, setMessage] = React.useState("");
 
-  const { toasts, setToasts } = React.useContext(ToastContext);
+  const { createToast } = React.useContext(ToastContext);
 
   function handleToastSubmit(e) {
     e.preventDefault();
-
     if (!message) {
       alert("Please enter a message to show in the toast");
       return;
     }
-    setToasts([...toasts, { variant, message }]);
-    console.log("toasts", toasts);
+
+    createToast(message, variant);
+
     setMessage("");
     setVariant("notice");
   }
